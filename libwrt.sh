@@ -37,7 +37,7 @@ $(eval $(call KernelPackage,xdp-sockets-diag))' >> package/kernel/linux/modules/
 # 在 .config 文件中启用该模块：
 echo 'CONFIG_PACKAGE_kmod-xdp-sockets-diag=y' >> .config
 
-git clone --depth=1 https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
+# git clone --depth=1 https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
