@@ -12,7 +12,7 @@ sed -i "s/hostname='.*'/hostname='ycna-route'/g" package/base-files/files/bin/co
 # sed -i 's/reg = <0x0 0x4ab00000 0x0 0x[0-9a-f]\+>/reg = <0x0 0x4ab00000 0x0 0x01000000>/' target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6018-512m.dtsi
 # sed -i 's/reg = <0x0 0x4ab00000 0x0 0x[0-9a-f]\+>/reg = <0x0 0x4ab00000 0x0 0x02000000>/' target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6018-512m.dtsi
 # sed -i 's/reg = <0x0 0x4ab00000 0x0 0x[0-9a-f]\+>/reg = <0x0 0x4ab00000 0x0 0x04000000>/' target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6018-512m.dtsi
-sed -i 's/reg = <0x0 0x4ab00000 0x0 0x[0-9a-f]\+>/reg = <0x0 0x4ab00000 0x0 0x06000000>/' target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6018-512m.dtsi
+# sed -i 's/reg = <0x0 0x4ab00000 0x0 0x[0-9a-f]\+>/reg = <0x0 0x4ab00000 0x0 0x06000000>/' target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6018-512m.dtsi
 
 
 rm -rf package/emortal/luci-app-athena-led
@@ -37,7 +37,11 @@ $(eval $(call KernelPackage,xdp-sockets-diag))' >> package/kernel/linux/modules/
 # 在 .config 文件中启用该模块：
 echo 'CONFIG_PACKAGE_kmod-xdp-sockets-diag=y' >> .config
 
-# git clone --depth=1 https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
+git clone --depth=1 https://github.com/QiuSimons/luci-app-daed package/luci-app-daed
+
+git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+
+
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
